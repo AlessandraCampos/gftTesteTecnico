@@ -1,24 +1,30 @@
 package com.company.JogadorFutebol;
-
-import com.sun.jdi.DoubleType;
-
-import java.sql.SQLOutput;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Jogador {
     private String nome;
-    private String posição;
-    public boolean aposentado;
+    private String posicao;
+    public boolean aposentado= false;
 
+    public Jogador(String nome, String posicao) {
+        this.setNome(nome);
+        this.setPosicao(posicao);
+    }
+
+    public String getPosicao() {
+        return posicao;
+    }
+    public void setPosicao(String posicao) {
+        this.posicao = posicao;
+    }
     @Override
     public String toString() {
         return "Jogador{" +
                 "nome='" + nome + '\'' +
-                ", posição='" + posição + '\'' +
-                ", datanascimento=" +
-                " 'aposentado }'" + aposentado;
+                ", posicao='" + posicao + '\'' +
+                ", aposentado=" + aposentado +
+                '}';
     }
 
 
@@ -30,13 +36,7 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public String getPosição() {
-        return posição;
-    }
 
-    public void setPosição(String posição) {
-        this.posição = posição;
-    }
 
 
     public String aposentadoria(int dia, int mes, int ano) {
@@ -52,21 +52,21 @@ public class Jogador {
         }
         if (Idade == 40) {
             aposentado = false;
+            System.out.println(getNome()+ " - " + getPosicao());
             System.out.println("Você nasceu em "+ dia + "/"+ mes + "/" + ano + '\n' +
-            "Voce tem " + Idade + " anos de idade");
-            System.out.println("Voce ja pode se aposentar");
+            "Voce tem " + Idade + " anos de idade voce ja pode pedir aposentaria");
 
         } else if (Idade < 40) {
             aposentado = false;
+            System.out.println(getNome()+ " - " + getPosicao());
             System.out.println("Você nasceu em "+ dia + "/"+ mes + "/" + ano + '\n' +
-                    "Voce tem " + Idade + " anos de idade");
-            System.out.println(" Voce ainda pode jogar futebol");
+                    "tem " + Idade + " anos de idade e ainda pode jogar futebol");
 
         } else {
             aposentado = true;
+            System.out.println(getNome()+ " - " + getPosicao());
             System.out.println("Você nasceu em "+ dia + "/"+ mes + "/" + ano + '\n' +
-             "Voce tem " + Idade + " anos de idade");
-            System.out.println(" Está aposentado");
+             "tem " + Idade + " anos de idade e está aposentado");
 
         }
         return String.valueOf(Idade);

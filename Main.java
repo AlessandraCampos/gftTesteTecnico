@@ -25,9 +25,9 @@ public class Main {
 //        Crianca crianca1 =new Crianca("Joaozinho","boazinha");
 //        Crianca crianca2 = new Crianca("Mariazinha", "Não foi Boazinha");
 //********************************************************************
-        Jogador jogador1 = new Jogador();
-        jogador1.aposentadoria(20,5,1970);
-        jogador1.toString();
+        Jogador jogador1 = new Jogador("João","Lateral");
+        jogador1.aposentadoria(20,5,1981);
+              
 //********************************************************************
 //        filho filho1 = new filho();
 //        filho1.pagarMesada(1000,true);
