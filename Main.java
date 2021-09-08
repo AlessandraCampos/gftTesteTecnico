@@ -17,18 +17,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Main {
 
     public static void main(String[] args) {
-       ContaCorrente cc = new ContaCorrente(1000);
-       ContaPoupanca cp =new ContaPoupanca(1000);
+//       ContaCorrente cc = new ContaCorrente(1000);
+//       ContaPoupanca cp =new ContaPoupanca(1000);
 //        cp.toString();
 //        cc.toString();
 //********************************************************************
 //        Crianca crianca1 =new Crianca("Joaozinho","boazinha");
 //        Crianca crianca2 = new Crianca("Mariazinha", "Não foi Boazinha");
 //********************************************************************
-//        Jogador jogador1 = new Jogador();
-//
-//        jogador1.aposentadoria(20,5,1981);
-//        jogador1.toString();
+        Jogador jogador1 = new Jogador();
+        jogador1.aposentadoria(20,5,1970);
+        jogador1.toString();
 //********************************************************************
 //        filho filho1 = new filho();
 //        filho1.pagarMesada(1000,true);

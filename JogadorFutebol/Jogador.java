@@ -10,7 +10,6 @@ import java.util.GregorianCalendar;
 public class Jogador {
     private String nome;
     private String posição;
-    private Date datanascimento;
     public boolean aposentado;
 
     @Override
@@ -18,7 +17,7 @@ public class Jogador {
         return "Jogador{" +
                 "nome='" + nome + '\'' +
                 ", posição='" + posição + '\'' +
-                ", datanascimento=" + datanascimento +
+                ", datanascimento=" +
                 " 'aposentado }'" + aposentado;
     }
 
@@ -39,35 +38,36 @@ public class Jogador {
         this.posição = posição;
     }
 
-    public Date getDatanascimento() {
-        return datanascimento;
-    }
 
-    public void setDatanascimento(Date datanascimento) {
-        this.datanascimento = datanascimento;
-    }
-
-    public String aposentadoria(int Dia, int Mes, int Ano) {
+    public String aposentadoria(int dia, int mes, int ano) {
 
         Calendar cal = GregorianCalendar.getInstance(); // Instancia do Calendar
         int anoAtual = cal.get(Calendar.YEAR); // Pega o Ano atual
-        int Idade = anoAtual - Ano;//Calcula a idade apenas com os anos
+        int Idade = anoAtual - ano;//Calcula a idade apenas com os anos
         int diaAtual = cal.get(Calendar.DAY_OF_MONTH);// Pega o dia atual
         int mesAtual = cal.get(Calendar.MONTH);//Pega o mes atual
-        if (Dia >= diaAtual && Mes >= mesAtual) {
+
+        if (dia >= diaAtual && mes >= mesAtual) {
             Idade--; // se o dia e o mes do aniversario for menor que dia e mes atual diminuir a idade
         }
         if (Idade == 40) {
-            System.out.println(" Você tem " + Idade + " anos de idade");
-            System.out.println(" Voce ja pode se aposentar");
             aposentado = false;
+            System.out.println("Você nasceu em "+ dia + "/"+ mes + "/" + ano + '\n' +
+            "Voce tem " + Idade + " anos de idade");
+            System.out.println("Voce ja pode se aposentar");
+
         } else if (Idade < 40) {
-            System.out.println(" Você tem " + Idade + " anos de idade");
-            System.out.println(" Voce ainda pode jogar futebol");
             aposentado = false;
+            System.out.println("Você nasceu em "+ dia + "/"+ mes + "/" + ano + '\n' +
+                    "Voce tem " + Idade + " anos de idade");
+            System.out.println(" Voce ainda pode jogar futebol");
+
         } else {
-            System.out.println(" Está aposentado");
             aposentado = true;
+            System.out.println("Você nasceu em "+ dia + "/"+ mes + "/" + ano + '\n' +
+             "Voce tem " + Idade + " anos de idade");
+            System.out.println(" Está aposentado");
+
         }
         return String.valueOf(Idade);
     }
